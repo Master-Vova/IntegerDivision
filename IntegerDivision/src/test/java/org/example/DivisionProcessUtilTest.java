@@ -8,7 +8,7 @@ class DivisionProcessUtilTest {
 
     @Test
     public void testNumber1823000002DevidedBy13() {
-        String expected =  "_1823000002│13\n" +
+        String expected = "_1823000002│13\n" +
                 " 13        │---------\n" +
                 " --        │140230769\n" +
                 " _52\n" +
@@ -30,7 +30,7 @@ class DivisionProcessUtilTest {
                 "        117\n" +
                 "        ---\n" +
                 "          5";
-        assertEquals(expected, DivisionProcessUtil.process(1823000002,13));
+        assertEquals(expected, DivisionProcessUtil.process(1823000002, 13));
     }
 
     @Test
@@ -45,7 +45,7 @@ class DivisionProcessUtilTest {
                 "   40\n" +
                 "   --\n" +
                 "    0";
-        assertEquals(expected, DivisionProcessUtil.process(1000,8));
+        assertEquals(expected, DivisionProcessUtil.process(1000, 8));
     }
 
     @Test
@@ -72,7 +72,7 @@ class DivisionProcessUtilTest {
                 "        798\n" +
                 "        ---\n" +
                 "        124";
-        assertEquals(expected, DivisionProcessUtil.process(1823000002,133));
+        assertEquals(expected, DivisionProcessUtil.process(1823000002, 133));
     }
 
     @Test
@@ -90,6 +90,6 @@ class DivisionProcessUtilTest {
                 "     3\n" +
                 "     -\n" +
                 "     0";
-        assertEquals(expected, DivisionProcessUtil.process(14823,3));
+        assertEquals(expected, DivisionProcessUtil.process(14823, 3));
     }
 }
