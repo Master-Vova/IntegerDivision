@@ -37,7 +37,7 @@ class DivisionProcessUtilTest {
     public void testNumber1000DevidedBy8() {
         String expected = "_1000│8\n" +
                 "  8  │---\n" +
-                " --  │125\n" +
+                "  -  │125\n" +
                 " _20\n" +
                 "  16\n" +
                 "  --\n" +
@@ -52,7 +52,7 @@ class DivisionProcessUtilTest {
     public void testNumber1823000002DevidedBy133() {
         String expected = "_1823000002│133\n" +
                 " 133       │--------\n" +
-                " --        │13706766\n" +
+                " ---       │13706766\n" +
                 " _493\n" +
                 "  399\n" +
                 "  ---\n" +

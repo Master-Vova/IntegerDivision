@@ -42,7 +42,8 @@ public class DivisionProcessUtil {
                 " ".repeat(dif + 1) + changingDivisor +
                 " ".repeat(numberLength(initialDividend) - dif - numberLength(changingDivisor)) +
                 "│" + "-".repeat(numberLength((initialDividend / initialDivisor))) + "\n" +
-                " --" + " ".repeat(numberLength(initialDividend) - dif - numberLength(changingDivisor)) +
+                " ".repeat(1 + dif) + "-".repeat(numberLength(changingDivisor)) +
+                " ".repeat(numberLength(initialDividend) - dif - numberLength(changingDivisor)) +
                 "│" + (initialDividend / initialDivisor) + "\n";
 
         return result;
