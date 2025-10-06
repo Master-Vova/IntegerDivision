@@ -12,7 +12,9 @@ public class LongDivisionSimulator {
         System.out.println("Type a divisor:");
         int divisor = write.nextInt();
 
-        System.out.println(DivisionProcessor.process(dividend, divisor));
+        IntegerDivision IntegerDivision = new IntegerDivision();
+
+        System.out.println(IntegerDivision.performDivision(dividend, divisor));
 
     }
 }

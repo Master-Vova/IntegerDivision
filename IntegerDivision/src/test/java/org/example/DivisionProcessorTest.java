@@ -31,7 +31,8 @@ class DivisionProcessorTest {
                         117
                         ---
                           5""";
-        assertEquals(expected, DivisionProcessor.process(1823000002, 13));
+        IntegerDivision IntegerDivision = new IntegerDivision();
+        assertEquals(expected, IntegerDivision.performDivision(1823000002, 13));
     }
 
     @Test
@@ -47,7 +48,8 @@ class DivisionProcessorTest {
                    40
                    --
                     0""";
-        assertEquals(expected, DivisionProcessor.process(1000, 8));
+        IntegerDivision IntegerDivision = new IntegerDivision();
+        assertEquals(expected, IntegerDivision.performDivision(1000, 8));
     }
 
     @Test
@@ -75,7 +77,8 @@ class DivisionProcessorTest {
                         798
                         ---
                         124""";
-        assertEquals(expected, DivisionProcessor.process(1823000002, 133));
+        IntegerDivision IntegerDivision = new IntegerDivision();
+        assertEquals(expected, IntegerDivision.performDivision(1823000002, 133));
     }
 
     @Test
@@ -94,34 +97,8 @@ class DivisionProcessorTest {
                      3
                      -
                      0""";
-        assertEquals(expected, DivisionProcessor.process(14823, 3));
-    }
-
-    @Test
-    public void testForNegativeInput() {
-        String expected = "Calculation with negative numbers is still developing... " +
-                "Sorry for the inconveniences";
-
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
-                DivisionProcessor.process(-14823, 3));
-        assertEquals(expected, exception.getMessage());
-    }
-
-    @Test
-    public void testDividingByZero() {
-        String expected = "Dividing by zero isn't allowed";
-
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
-                DivisionProcessor.process(14823, 0));
-        assertEquals(expected, exception.getMessage());
-    }
-
-    @Test
-    public void testDivisorGreaterThanDividend() {
-        String expected = "Dividend is less than divisor...";
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
-                DivisionProcessor.process(14823, 20000));
-        assertEquals(expected, exception.getMessage());
+        IntegerDivision IntegerDivision = new IntegerDivision();
+        assertEquals(expected, IntegerDivision.performDivision(14823, 3));
     }
 
     @Test
@@ -143,7 +120,38 @@ class DivisionProcessorTest {
                      277775
                      ------
                        5122""";
-        assertEquals(expected, DivisionProcessor.process((Integer.MAX_VALUE), 55555));
+        IntegerDivision IntegerDivision = new IntegerDivision();
+        assertEquals(expected, IntegerDivision.performDivision((Integer.MAX_VALUE), 55555));
     }
 
+    @Test
+    public void testForNegativeInput() {
+        String expected = "Calculation with negative numbers is still developing... " +
+                "Sorry for the inconveniences";
+        IntegerDivision IntegerDivision = new IntegerDivision();
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
+                IntegerDivision.performDivision(-14823, 3));
+        assertEquals(expected, exception.getMessage());
+    }
+
+    @Test
+    public void testDividingByZero() {
+        String expected = "Dividing by zero isn't allowed";
+        IntegerDivision IntegerDivision = new IntegerDivision();
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
+                IntegerDivision.performDivision(14823, 0));
+        assertEquals(expected, exception.getMessage());
+    }
+
+    @Test
+    public void testDivisorGreaterThanDividend() {
+        String expected = "Dividend is less than divisor...";
+        IntegerDivision IntegerDivision = new IntegerDivision();
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
+                IntegerDivision.performDivision(14823, 20000));
+        assertEquals(expected, exception.getMessage());
+    }
 }
