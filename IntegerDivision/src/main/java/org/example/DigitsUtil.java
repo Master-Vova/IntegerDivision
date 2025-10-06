@@ -1,10 +1,10 @@
 package org.example;
 
-class DigitsUtil {
+final class DigitsUtil {
     private DigitsUtil() {
     }
 
-    static final int getDigitFromNumber(int dividend, int i) {
+    static int getDigitFromNumber(int dividend, int i) {
         validate(dividend);
         validate(i);
 
@@ -15,14 +15,14 @@ class DigitsUtil {
         return result;
     }
 
-     static final int getNumberLength(int number) {
+     static int getNumberLength(int number) {
         validate(number);
 
         String sample = Integer.toString(number);
         return sample.length();
     }
 
-     static final boolean lengthItDifferent(int dividend, int divisor) {
+     static  boolean lengthItDifferent(int dividend, int divisor) {
         validate(dividend);
         validate(divisor);
 
