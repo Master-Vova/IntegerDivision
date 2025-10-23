@@ -1,6 +1,6 @@
 package org.example;
 
-class DivisionFormatter {
+class DivisionFormatter{
     int initialDividend;
     int initialDivisor;
     StringBuilder result = new StringBuilder();
@@ -10,7 +10,7 @@ class DivisionFormatter {
         this.initialDivisor = divisor;
     }
 
-    void writeString(int changingDividend, int changingDivisor, int i) {
+    public void writeString(int changingDividend, int changingDivisor, int i) {
 
         if (result.isEmpty()) {
             writeStringForFirstTime(changingDividend, changingDivisor);
@@ -27,7 +27,7 @@ class DivisionFormatter {
                         DigitsUtil.getNumberLength(changingDivisor)) + "\n");
     }
 
-    void writeLastLine(int reminder) {
+    public void writeLastLine(int reminder) {
         result.append(" ".repeat(DigitsUtil.getNumberLength(initialDividend)
                 - DigitsUtil.getNumberLength(reminder) + 1) + reminder);
     }

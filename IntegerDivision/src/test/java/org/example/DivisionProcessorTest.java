@@ -32,7 +32,7 @@ class DivisionProcessorTest {
                         ---
                           5""";
         IntegerDivision IntegerDivision = new IntegerDivision();
-        assertEquals(expected, IntegerDivision.performDivision(1823000002, 13));
+        assertEquals(expected, IntegerDivision.buildLongDivisionVisualization(1823000002, 13));
     }
 
     @Test
@@ -49,7 +49,7 @@ class DivisionProcessorTest {
                    --
                     0""";
         IntegerDivision IntegerDivision = new IntegerDivision();
-        assertEquals(expected, IntegerDivision.performDivision(1000, 8));
+        assertEquals(expected, IntegerDivision.buildLongDivisionVisualization(1000, 8));
     }
 
     @Test
@@ -78,7 +78,7 @@ class DivisionProcessorTest {
                         ---
                         124""";
         IntegerDivision IntegerDivision = new IntegerDivision();
-        assertEquals(expected, IntegerDivision.performDivision(1823000002, 133));
+        assertEquals(expected, IntegerDivision.buildLongDivisionVisualization(1823000002, 133));
     }
 
     @Test
@@ -98,7 +98,7 @@ class DivisionProcessorTest {
                      -
                      0""";
         IntegerDivision IntegerDivision = new IntegerDivision();
-        assertEquals(expected, IntegerDivision.performDivision(14823, 3));
+        assertEquals(expected, IntegerDivision.buildLongDivisionVisualization(14823, 3));
     }
 
     @Test
@@ -121,17 +121,16 @@ class DivisionProcessorTest {
                      ------
                        5122""";
         IntegerDivision IntegerDivision = new IntegerDivision();
-        assertEquals(expected, IntegerDivision.performDivision((Integer.MAX_VALUE), 55555));
+        assertEquals(expected, IntegerDivision.buildLongDivisionVisualization((Integer.MAX_VALUE), 55555));
     }
 
     @Test
     public void testForNegativeInput() {
-        String expected = "Calculation with negative numbers is still developing... " +
-                "Sorry for the inconveniences";
+        String expected = "Negative dividend isn't allowed...";
         IntegerDivision IntegerDivision = new IntegerDivision();
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
-                IntegerDivision.performDivision(-14823, 3));
+                IntegerDivision.buildLongDivisionVisualization(-14823, 3));
         assertEquals(expected, exception.getMessage());
     }
 
@@ -141,7 +140,7 @@ class DivisionProcessorTest {
         IntegerDivision IntegerDivision = new IntegerDivision();
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
-                IntegerDivision.performDivision(14823, 0));
+                IntegerDivision.buildLongDivisionVisualization(14823, 0));
         assertEquals(expected, exception.getMessage());
     }
 
@@ -151,7 +150,7 @@ class DivisionProcessorTest {
         IntegerDivision IntegerDivision = new IntegerDivision();
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
-                IntegerDivision.performDivision(14823, 20000));
+                IntegerDivision.buildLongDivisionVisualization(14823, 20000));
         assertEquals(expected, exception.getMessage());
     }
 }

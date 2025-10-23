@@ -1,12 +1,11 @@
 package org.example;
 
-final class DigitsUtil {
+final public class DigitsUtil {
     private DigitsUtil() {
     }
 
-    static int getDigitFromNumber(int dividend, int i) {
-        validate(dividend);
-        validate(i);
+    public static int getDigitFromNumber(int dividend, int i) {
+        validate(dividend, i);
 
         int result = (int) (dividend / (Math.pow(10, getNumberLength(dividend) - i - 1)));
         if (result >= 10) {
@@ -15,23 +14,23 @@ final class DigitsUtil {
         return result;
     }
 
-     static int getNumberLength(int number) {
+    public static int getNumberLength(int number) {
         validate(number);
 
         String sample = Integer.toString(number);
         return sample.length();
     }
 
-     static  boolean lengthItDifferent(int dividend, int divisor) {
-        validate(dividend);
-        validate(divisor);
-
+     public static boolean lengthItDifferent(int dividend, int divisor) {
+        validate(dividend, divisor);
         return getNumberLength(dividend) > getNumberLength(divisor);
     }
 
-    private static void validate(int number) {
-        if (number < 0) {
-            throw new IllegalArgumentException("Utility class got wrong input");
+    private static void validate(int... numbers) {
+        for (int singleNumber : numbers) {
+            if (singleNumber < 0) {
+                throw new IllegalArgumentException("Utility class got negative input");
+            }
         }
     }
 

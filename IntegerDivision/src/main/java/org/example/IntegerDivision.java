@@ -2,35 +2,36 @@ package org.example;
 
 public class IntegerDivision {
 
-    public String performDivision(int dividend, int divisor) {
+    public String buildLongDivisionVisualization(int dividend, int divisor) {
 
         validate(dividend, divisor);
+
         DivisionFormatter formatter = new DivisionFormatter(dividend, divisor);
+        Calculation calculation = new Calculation();
+
         int digitsChecked = 0;
-        int reminder = 0;
 
         while (digitsChecked < DigitsUtil.getNumberLength(dividend)) {
 
-            int changingDividend = (reminder * 10) + DigitsUtil.getDigitFromNumber(dividend, digitsChecked);
-            int changingDivisor = (changingDividend / divisor) * divisor;
-            reminder = changingDividend % divisor;
+            calculation.performDivision(divisor, DigitsUtil.getDigitFromNumber(dividend, digitsChecked));
 
-            if (changingDividend < divisor) {
+            if (calculation.changingDividend < divisor) {
                 digitsChecked++;
                 continue;
             }
-            formatter.writeString(changingDividend, changingDivisor, digitsChecked);
+            formatter.writeString(calculation.changingDividend, calculation.changingDivisor, digitsChecked);
             digitsChecked++;
         }
-        formatter.writeLastLine(reminder);
+        formatter.writeLastLine(calculation.reminder);
 
         return formatter.result.toString();
     }
 
     private static void validate(int dividend, int divisor) {
-        if (dividend < 0 || divisor < 0) {
-            throw new IllegalArgumentException("Calculation with negative numbers is still developing... " +
-                    "Sorry for the inconveniences");
+        if (dividend < 0) {
+            throw new IllegalArgumentException("Negative dividend isn't allowed...");
+        } else if (divisor < 0) {
+            throw new IllegalArgumentException("Negative divisor isn't allowed...");
         } else if (divisor == 0) {
             throw new IllegalArgumentException("Dividing by zero isn't allowed");
         } else if (dividend < divisor) {

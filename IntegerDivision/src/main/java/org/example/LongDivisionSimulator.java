@@ -13,8 +13,9 @@ public class LongDivisionSimulator {
         int divisor = write.nextInt();
 
         IntegerDivision IntegerDivision = new IntegerDivision();
+        String resultOfDivision = IntegerDivision.buildLongDivisionVisualization(dividend, divisor);
 
-        System.out.println(IntegerDivision.performDivision(dividend, divisor));
+        System.out.println(resultOfDivision);
 
     }
 }
