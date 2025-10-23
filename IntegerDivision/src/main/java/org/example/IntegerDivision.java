@@ -29,9 +29,9 @@ public class IntegerDivision {
 
     private static void validate(int dividend, int divisor) {
         if (dividend < 0) {
-            throw new IllegalArgumentException("Negative dividend isn't allowed...");
+            throw new IllegalArgumentException(dividend + " value isn't allowed...");
         } else if (divisor < 0) {
-            throw new IllegalArgumentException("Negative divisor isn't allowed...");
+            throw new IllegalArgumentException(divisor + " value isn't allowed...");
         } else if (divisor == 0) {
             throw new IllegalArgumentException("Dividing by zero isn't allowed");
         } else if (dividend < divisor) {

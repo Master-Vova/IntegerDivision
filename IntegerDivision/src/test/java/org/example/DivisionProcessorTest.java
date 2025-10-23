@@ -126,7 +126,7 @@ class DivisionProcessorTest {
 
     @Test
     public void testForNegativeInput() {
-        String expected = "Negative dividend isn't allowed...";
+        String expected = "-14823 value isn't allowed...";
         IntegerDivision IntegerDivision = new IntegerDivision();
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
