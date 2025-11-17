@@ -12,10 +12,13 @@ public class LongDivisionSimulator {
         System.out.println("Type a divisor:");
         int divisor = write.nextInt();
 
-        IntegerDivision IntegerDivision = new IntegerDivision();
-        String resultOfDivision = IntegerDivision.buildLongDivisionVisualization(dividend, divisor);
 
-        System.out.println(resultOfDivision);
+        IntegerDivision integerDivision = new IntegerDivision();
+        DivisionResult result = integerDivision.calculate(dividend, divisor);
 
+        DivisionFormatter formatter = new DivisionFormatter();
+        String resultString = formatter.formatResult(result);
+
+        System.out.println(resultString);
     }
 }

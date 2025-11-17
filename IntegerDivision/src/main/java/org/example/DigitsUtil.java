@@ -16,9 +16,7 @@ final public class DigitsUtil {
 
     public static int getNumberLength(int number) {
         validate(number);
-
-        String sample = Integer.toString(number);
-        return sample.length();
+        return Integer.toString(number).length();
     }
 
      public static boolean lengthItDifferent(int dividend, int divisor) {
@@ -27,9 +25,10 @@ final public class DigitsUtil {
     }
 
     private static void validate(int... numbers) {
-        for (int singleNumber : numbers) {
-            if (singleNumber < 0) {
-                throw new IllegalArgumentException("Utility class got negative input");
+        for (int number : numbers) {
+            if (number < 0) {
+                throw new IllegalArgumentException("Number " + number + " is negative, " +
+                        "which is not allowed in current program");
             }
         }
     }

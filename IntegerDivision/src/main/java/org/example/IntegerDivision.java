@@ -1,37 +1,41 @@
 package org.example;
 
 public class IntegerDivision {
+    public DivisionResult calculate(int initialDividend, int initialDivisor) {
+        validate(initialDividend, initialDivisor);
 
-    public String buildLongDivisionVisualization(int dividend, int divisor) {
+        int changingDividend;
+        int changingDivisor;
+        int reminder = 0;
 
-        validate(dividend, divisor);
-
-        DivisionFormatter formatter = new DivisionFormatter(dividend, divisor);
-        Calculation calculation = new Calculation();
-
+        int[][] arr = new int[3][DigitsUtil.getNumberLength(initialDividend)];
         int digitsChecked = 0;
 
-        while (digitsChecked < DigitsUtil.getNumberLength(dividend)) {
+        while (digitsChecked < DigitsUtil.getNumberLength(initialDividend)) {
 
-            calculation.performDivision(divisor, DigitsUtil.getDigitFromNumber(dividend, digitsChecked));
+            changingDividend = (reminder * 10) +
+                    DigitsUtil.getDigitFromNumber(initialDividend,digitsChecked);
+            changingDivisor = (changingDividend / initialDivisor) * initialDivisor;
+            reminder = changingDividend % initialDivisor;
 
-            if (calculation.changingDividend < divisor) {
-                digitsChecked++;
-                continue;
+            arr[1][digitsChecked] = changingDividend;
+            arr[2][digitsChecked] = changingDivisor;
+
+            if (changingDividend < initialDivisor){
+                arr[0][digitsChecked] = 1;
             }
-            formatter.writeString(calculation.changingDividend, calculation.changingDivisor, digitsChecked);
             digitsChecked++;
         }
-        formatter.writeLastLine(calculation.reminder);
-
-        return formatter.result.toString();
+        return new DivisionResult(initialDividend, initialDivisor, arr, reminder);
     }
 
     private static void validate(int dividend, int divisor) {
         if (dividend < 0) {
-            throw new IllegalArgumentException(dividend + " value isn't allowed...");
+            throw new IllegalArgumentException(dividend + " value of dividend is less than zero" +
+                    " isn't allowed...");
         } else if (divisor < 0) {
-            throw new IllegalArgumentException(divisor + " value isn't allowed...");
+            throw new IllegalArgumentException(divisor + " value of divisor is less than zero" +
+                    " isn't allowed...");
         } else if (divisor == 0) {
             throw new IllegalArgumentException("Dividing by zero isn't allowed");
         } else if (dividend < divisor) {
