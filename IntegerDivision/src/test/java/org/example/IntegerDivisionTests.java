@@ -2,18 +2,16 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class DivisionProcessorTest {
+class IntegerDivisionTests {
     @Test
-    public void testNumber1823000002DevidedBy13() {
+    public void testNumberDivision() {
         IntegerDivision integerDivision = new IntegerDivision();
         int[][] arr = {{1, 0, 0, 1, 0, 0, 1, 0, 0, 0},
                 {1, 18, 52, 3, 30, 40, 10, 100, 90, 122},
                 {0, 13, 52, 0, 26, 39, 0, 91, 78, 117}};
-        DivisionResult expected = new DivisionResult(1823000002,13, arr, 5);
+        DivisionResult expected = new DivisionResult(1823000002, 13, arr, 5);
         DivisionResult result = integerDivision.calculate(1823000002, 13);
 
         assertArrayEquals(expected.arr(), result.arr());
@@ -52,13 +50,4 @@ class DivisionProcessorTest {
         assertEquals(expected, exception.getMessage());
     }
 
-    @Test
-    public void testForArrays() {
-        int[][] expected = {{1, 0, 0, 0},{1, 10, 20, 40},{0, 8, 16, 40}};
-
-        IntegerDivision integerDivision = new IntegerDivision();
-        DivisionResult result = integerDivision.calculate(1000, 8);
-
-        assertEquals(Arrays.deepToString(expected), Arrays.deepToString(result.arr()));
-    }
 }

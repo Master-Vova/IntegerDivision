@@ -1,6 +1,6 @@
 package org.example;
 
-final public class DigitsUtil {
+public final class DigitsUtil {
     private DigitsUtil() {
     }
 
