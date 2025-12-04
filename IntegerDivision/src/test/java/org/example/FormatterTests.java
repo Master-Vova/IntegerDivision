@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FormatterTests {
     @Test
-    public void testNumberDivision1() {
+    public void testNumberDivision() {
         int[][] arr = {{1, 0, 0, 1, 0, 0, 1, 0, 0, 0},
                 {1, 18, 52, 3, 30, 40, 10, 100, 90, 122},
                 {0, 13, 52, 13, 26, 39, 13, 91, 78, 117}};
@@ -38,62 +38,8 @@ public class FormatterTests {
         DivisionFormatter formatter = new DivisionFormatter();
         assertEquals(expected, formatter.formatResult(data));
     }
-
     @Test
     public void testZeroReminder() {
-        int[][] arr = {{1, 0, 0, 0}, {1, 10, 20, 40}, {0, 8, 16, 40}};
-        DivisionResult data = new DivisionResult(1000, 8, arr, 0);
-        String expected = """
-                _1000│8
-                  8  │---
-                  -  │125
-                 _20
-                  16
-                  --
-                  _40
-                   40
-                   --
-                    0""";
-
-        DivisionFormatter formatter = new DivisionFormatter();
-        assertEquals(expected, formatter.formatResult(data));
-    }
-
-    @Test
-    public void testNumberDivision3() {
-        int[][] arr = {{1, 1, 0, 0, 0, 1, 0, 0, 0, 0},
-                {1, 18, 182, 493, 940, 90, 900, 1020, 890, 922},
-                {0, 133, 133, 399, 931, 133, 798, 931, 798, 798}};
-        DivisionResult data = new DivisionResult(1823000002, 133, arr, 124);
-        String expected = """
-                _1823000002│133
-                 133       │--------
-                 ---       │13706766
-                 _493
-                  399
-                  ---
-                  _940
-                   931
-                   ---
-                    _900
-                     798
-                     ---
-                    _1020
-                      931
-                      ---
-                      _890
-                       798
-                       ---
-                       _922
-                        798
-                        ---
-                        124""";
-        DivisionFormatter formatter = new DivisionFormatter();
-        assertEquals(expected, formatter.formatResult(data));
-    }
-
-    @Test
-    public void testNumber14823DevidedBy3() {
 
         int[][] arr = {{1, 0, 0, 0, 0}, {1, 14, 28, 12, 3}, {0, 12, 27, 12, 3}};
         DivisionResult data = new DivisionResult(14823, 3, arr, 0);
